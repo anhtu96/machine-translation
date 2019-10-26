@@ -40,3 +40,6 @@ I trained my model using CrossEntropyLoss as my loss function, and Adam as the o
 
 ### Inference
 At test time, **teacher forcing** is not used because we don't know the ground-truth captions yet. So at each timestep, the input to the Decoder are taken from previous prediction.
+
+### BLEU score
+This time I use BLEU score as a validation metric, though it doesn't reflect the quality of a sentence completely, it's still a reasonable choice for this type of problem. BLEU score can also be used for *early stopping*, which I added as an option in my `train` function. To compute BLEU score, I choose `nltk` library, which provides function for computing BLEU-4 score.
