@@ -1,0 +1,10 @@
+### gitignore
+# notebook checkpoints and cache
+.ipynb_checkpoints/
+__pycache__/
+
+# saved models
+saved_models/*
+
+# keep folder
+!saved_models/.gitkeep

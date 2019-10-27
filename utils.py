@@ -5,6 +5,22 @@ Created on Sat Oct 12 13:36:36 2019
 @author: tungo
 """
 import string
+import random
+import numpy as np
+import torch
+
+def generate_seed(seed):
+    """
+    Generate a seed for deterministic random calculation.
+    
+    Input:
+    - seed: an integer for seed
+    """
+    torch.cuda.manual_seed(seed)
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.backends.cudnn.deterministic = True
 
 def preprocess(inp_filename, target_filename, max_len):
     with open(inp_filename, 'r', encoding='utf8') as f_inp:

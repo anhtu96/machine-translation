@@ -9,6 +9,16 @@ import torch
 from torch.utils.data import Dataset
 
 class MTDataset(Dataset):
+    """
+    Create a Dataset class to feed into a torch DataLoader
+    
+    Inputs:
+    - input_matrix: word vectors of input sentences
+    - target_matrix: word vectors of target sentences
+    
+    Return:
+    - pairs of input tensors - target tensors
+    """
     def __init__(self, input_matrix, target_matrix):
         self.data = []
         for i in range(len(input_matrix)):
