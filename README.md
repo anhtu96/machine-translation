@@ -36,10 +36,67 @@ According to the original paper, the last forward hidden state will be fed into 
 Different than the Encoder, Decoder only uses **uni-directional RNN**, in this project I use GRU for Decoder. At every timestep, the input to Decoder's GRU is the concatenation of embedded input word and the context vector from Attention network.
 
 ### Training
-I trained my model using CrossEntropyLoss as my loss function, and Adam as the optimizer. And I decrease my learning rate by 0.2 times every epoch using lr_scheduler from PyTorch. At training phase, **teacher forcing** is used, which means that the input words fed into Decoder model are taken from the ground-truth train captions, not from our prediction.
+I trained my model using CrossEntropyLoss as my loss function, and Adam as the optimizer. And I decrease my learning rate by 0.2 times every epoch using `lr_scheduler` from PyTorch. At training phase, **teacher forcing** is used, which means that the input words fed into Decoder model are taken from the ground-truth train captions, not from our prediction.
 
 ### Inference
 At test time, **teacher forcing** is not used because we don't know the ground-truth captions yet. So at each timestep, the input to the Decoder are taken from previous prediction.
 
 ### BLEU score
 This time I use BLEU score as a validation metric, though it doesn't reflect the quality of a sentence completely, it's still a reasonable choice for this type of problem. BLEU score can also be used for *early stopping*, which I added as an option in my `train` function. To compute BLEU score, I choose `nltk` library, which provides function for computing BLEU-4 score.
+
+### Complete model
+Putting all together, here is our complete model
+
+<div align="center"><img src="./imgs/completemodel1.png"></div>
+
+Below is the "modified" version
+
+<div align="center"><img src="./imgs/completemodel2.png"></div>
+
+## Results
+Since I use Google Colab, I only trained each model for 5 epochs for quick result. Here is the BLEU score on test set after 5 training epochs without early stopping
+
+Model | BLEU
+:---: | :---:
+Original | 18.524
+Modified | 19.283
+
+With this setting, my modified model seems to achieve a better BLEU score than the original. However, there're some times when I set learning rate decay to different values and enable early stopping, this result varied. Sometimes the first model achieves higher BLEU than the latter.
+
+## Examples
+With only 5 epochs, the model cannot perform really well. But let's see how it can translate sentences from test set.
+
+**Sentence 1: "and i was very proud"**
+
+Model | Translated sentence
+:---: | :---:
+Original | và tôi rất tự hào
+Modified | và tôi tự hào rất tự hào
+
+**Sentence 2: "but most people don apost agree"
+
+Model | Translated sentence
+:---: | :---:
+Original | nhưng hầu hết mọi người không đồng ý
+Modified | nhưng hầu hết mọi người không đồng ý
+
+**Sentence 3: "i also didn apost know that the second step is to isolate the victim"
+
+Model | Translated sentence
+:---: | :---:
+Original | tôi cũng không biết rằng thứ hai là để phân loại các nạn nhân
+Modified | tôi cũng không biết rằng bước thứ hai là để chuyển nạn nhân
+
+**Sentence 4: "my family was not poor  and myself  i had never experienced hunger"
+
+Model | Translated sentence
+:---: | :---:
+Original | gia đình tôi không phải là nghèo và tôi không bao giờ hồi phục hồi
+Modified | gia đình tôi không nghèo và tôi không bao giờ có thể nhìn qua đói
+
+**Sentence 5: "this was the first time i heard that people in my country were suffering"
+
+Model | Translated sentence
+:---: | :---:
+Original | lần đầu tiên tôi nghe thấy mọi người ở đất nước của tôi bị đau khổ
+Modified | đó là lần đầu tiên tôi nghe thấy mọi người ở đất nước của tôi rất đau khổ
