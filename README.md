@@ -49,7 +49,7 @@ Putting all together, here is our complete model
 
 <div align="center"><img src="./imgs/completemodel1.png"></div>
 
-Below is the "modified" version
+Below is the *"modified"* version
 
 <div align="center"><img src="./imgs/completemodel2.png"></div>
 
@@ -66,35 +66,35 @@ With this setting, my modified model seems to achieve a better BLEU score than t
 ## Examples
 With only 5 epochs, the model cannot perform really well. But let's see how it can translate sentences from test set.
 
-**Sentence 1: "and i was very proud"**
+* **Sentence 1: "and i was very proud"**
 
 Model | Translated sentence
 :---: | :---:
 Original | và tôi rất tự hào
 Modified | và tôi tự hào rất tự hào
 
-**Sentence 2: "but most people don apost agree"
+* **Sentence 2: "but most people don apost agree"**
 
 Model | Translated sentence
 :---: | :---:
 Original | nhưng hầu hết mọi người không đồng ý
 Modified | nhưng hầu hết mọi người không đồng ý
 
-**Sentence 3: "i also didn apost know that the second step is to isolate the victim"
+* **Sentence 3: "i also didn apost know that the second step is to isolate the victim"**
 
 Model | Translated sentence
 :---: | :---:
 Original | tôi cũng không biết rằng thứ hai là để phân loại các nạn nhân
 Modified | tôi cũng không biết rằng bước thứ hai là để chuyển nạn nhân
 
-**Sentence 4: "my family was not poor  and myself  i had never experienced hunger"
+* **Sentence 4: "my family was not poor  and myself  i had never experienced hunger"**
 
 Model | Translated sentence
 :---: | :---:
 Original | gia đình tôi không phải là nghèo và tôi không bao giờ hồi phục hồi
 Modified | gia đình tôi không nghèo và tôi không bao giờ có thể nhìn qua đói
 
-**Sentence 5: "this was the first time i heard that people in my country were suffering"
+* **Sentence 5: "this was the first time i heard that people in my country were suffering"**
 
 Model | Translated sentence
 :---: | :---:
