@@ -49,7 +49,7 @@ Putting all together, here is our complete model
 
 <div align="center"><img src="./imgs/completemodel1.png"></div>
 
-Below is the *"modified"* version
+Below is my *"modified"* version
 
 <div align="center"><img src="./imgs/completemodel2.png"></div>
 
@@ -100,3 +100,12 @@ Model | Translated sentence
 :---: | :---:
 Original | lần đầu tiên tôi nghe thấy mọi người ở đất nước của tôi bị đau khổ
 Modified | đó là lần đầu tiên tôi nghe thấy mọi người ở đất nước của tôi rất đau khổ
+
+## References
+Here are some useful materials that I refer to when doing this project:
+1. *Dzmitry Bahdanau, Kyunghyun Cho, Yoshua Bengio (2014).* [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473).
+2. https://github.com/bentrevett/pytorch-seq2seq/blob/master/3%20-%20Neural%20Machine%20Translation%20by%20Jointly%20Learning%20to%20Align%20and%20Translate.ipynb.
+3. https://www.tensorflow.org/tutorials/text/nmt_with_attention.
+4. https://github.com/tensorflow/nmt.
+5. https://viblo.asia/p/machine-translate-voi-attention-trong-deep-learning-Az45bY7zlxY.
+6. [Week 3 of Sequence Models course from Coursera](https://www.coursera.org/learn/nlp-sequence-models/home/week/3).
